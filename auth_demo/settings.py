@@ -128,6 +128,7 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'shopify_auth',
+    'auth_app',
     # Uncomment the next line to enable the admin:
     # 'django.contrib.admin',
     # Uncomment the next line to enable admin documentation:
@@ -164,6 +165,17 @@ LOGGING = {
         },
     }
 }
+
+# Use the Shopify Auth authentication backend.
+AUTHENTICATION_BACKENDS = (
+    'shopify_auth.backends.ShopUserBackend',
+)
+
+# Use the Shopify Auth user model.
+AUTH_USER_MODEL = 'auth_app.AuthAppShopUser'
+
+# Set a default login redirect location.
+LOGIN_REDIRECT_URL = 'auth_app.views.home'
 
 # Add Shopify Auth configuration.
 #
