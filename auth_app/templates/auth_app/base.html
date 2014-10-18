@@ -1,0 +1,21 @@
+<!DOCTYPE html>{% load staticfiles %}
+<html>
+<head>
+    <script type="text/javascript" src="https://cdn.shopify.com/s/assets/external/app.js"></script>
+    <script type="text/javascript">
+        ShopifyApp.init({
+            apiKey: '{{ SHOPIFY_APP_API_KEY }}',
+            shopOrigin: 'https://{{ user.myshopify_domain }}'
+        });
+        ShopifyApp.ready(function() {
+            ShopifyApp.Bar.initialize({
+                title: '{{ SHOPIFY_APP_NAME }}',
+                buttons: {}
+            });
+        });
+    </script>
+</head>
+<body>
+{% block body %}{% endblock %}
+</body>
+</html>
