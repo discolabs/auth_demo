@@ -5,6 +5,7 @@ from django.conf.urls import patterns, include, url
 # admin.autodiscover()
 
 urlpatterns = patterns('',
+    url(r'login/', include('shopify_auth.urls')),
     # Examples:
     # url(r'^$', 'auth_demo.views.home', name='home'),
     # url(r'^auth_demo/', include('auth_demo.foo.urls')),
