@@ -1,5 +1,12 @@
 # Django settings for auth_demo project.
 
+# Load environment variables from a .env file so that they can be read later in settings via os.environ.get().
+# See https://github.com/theskumar/python-dotenv.
+import os
+import dotenv
+PROJECT_PATH = os.path.dirname(os.path.dirname(__file__))
+dotenv.load_dotenv(os.path.join(PROJECT_PATH, ".env"))
+
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG
 
@@ -120,6 +127,7 @@ INSTALLED_APPS = (
     'django.contrib.sites',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'shopify_auth',
     # Uncomment the next line to enable the admin:
     # 'django.contrib.admin',
     # Uncomment the next line to enable admin documentation:
@@ -156,3 +164,15 @@ LOGGING = {
         },
     }
 }
+
+# Add Shopify Auth configuration.
+#
+# Note that sensitive credentials SHOPIFY_APP_API_KEY and SHOPIFY_APP_API_SECRET are read from environment variables,
+# as is best practice. These environment variables are in turn read from a .env file in the project directory.
+# See https://github.com/theskumar/python-dotenv for more.
+SHOPIFY_APP_NAME = 'Auth Demo'
+SHOPIFY_APP_API_KEY = os.environ.get('SHOPIFY_APP_API_KEY')
+SHOPIFY_APP_API_SECRET = os.environ.get('SHOPIFY_APP_API_SECRET')
+SHOPIFY_APP_API_SCOPE = ['read_products', 'read_orders']
+SHOPIFY_APP_IS_EMBEDDED = True
+SHOPIFY_APP_DEV_MODE = False
