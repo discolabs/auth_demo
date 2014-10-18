@@ -1,4 +1,7 @@
-auth_demo
-=========
+Shopify Auth Demo App
+=====================
 
-A demo application for the django-shopify-auth package.
+
+This is a demonstration app for the `django-shopify-auth` package.
+
+For more information, visit the package repository [here](https://github.com/discolabs/django-shopify-auth).
