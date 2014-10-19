@@ -4,4 +4,16 @@
     <p>
         Welcome, <strong>{{ user }}</strong>!
     </p>
+    <ul>
+        {% for product in products %}
+        <li>
+            {{ product.title }}
+            <ul>
+                {% for variant in product.variants %}
+                <li>{{ variant.title }} (${{ variant.price }})</li>
+                {% endfor %}
+            </ul>
+        </li>
+        {% endfor %}
+    </ul>
 {% endblock %}
