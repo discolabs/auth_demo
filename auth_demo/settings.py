@@ -1,9 +1,12 @@
 # Django settings for auth_demo project.
+import os
+
+import dotenv
+from django.conf import global_settings
+
 
 # Load environment variables from a .env file so that they can be read later in settings via os.environ.get().
 # See https://github.com/theskumar/python-dotenv.
-import os
-import dotenv
 PROJECT_PATH = os.path.dirname(os.path.dirname(__file__))
 dotenv.load_dotenv(os.path.join(PROJECT_PATH, ".env"))
 
@@ -120,9 +123,8 @@ TEMPLATE_DIRS = (
     # Don't forget to use absolute paths, not relative paths.
 )
 
-TEMPLATE_CONTEXT_PROCESSORS = (
-    'django.contrib.auth.context_processors.auth',
-)
+# Start off with the default context processors.
+TEMPLATE_CONTEXT_PROCESSORS = global_settings.TEMPLATE_CONTEXT_PROCESSORS
 
 INSTALLED_APPS = (
     'django.contrib.auth',
@@ -173,6 +175,11 @@ LOGGING = {
 # Use the Shopify Auth authentication backend.
 AUTHENTICATION_BACKENDS = (
     'shopify_auth.backends.ShopUserBackend',
+)
+
+# Add the Shopify Auth context processor.
+TEMPLATE_CONTEXT_PROCESSORS += (
+    'shopify_auth.context_processors.shopify_auth',
 )
 
 # Use the Shopify Auth user model.
