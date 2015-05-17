@@ -58,6 +58,7 @@ target/
 
 # Environment variables
 .env
+.python-version
 
 # SQLite3 database
 db.sqlite3
