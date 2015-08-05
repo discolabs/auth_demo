@@ -199,3 +199,7 @@ SHOPIFY_APP_API_SECRET = os.environ.get('SHOPIFY_APP_API_SECRET')
 SHOPIFY_APP_API_SCOPE = ['read_products', 'read_orders']
 SHOPIFY_APP_IS_EMBEDDED = True
 SHOPIFY_APP_DEV_MODE = False
+
+# Set secure proxy header to allow proper detection of secure URLs behind a proxy.
+# See https://docs.djangoproject.com/en/1.7/ref/settings/#secure-proxy-ssl-header
+SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
