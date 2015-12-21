@@ -1,3 +1,3 @@
-Django==1.7.1
-django-shopify-auth==0.4.2
+Django==1.9
+django-shopify-auth==0.4.4
 python-dotenv==0.1.0

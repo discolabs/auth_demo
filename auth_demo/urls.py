@@ -1,10 +1,8 @@
-from django.conf.urls import patterns, include, url
+from django.conf.urls import include, url
 
-# Uncomment the next two lines to enable the admin:
-# from django.contrib import admin
-# admin.autodiscover()
+from auth_app.views import home
 
-urlpatterns = patterns('',
+urlpatterns = [
     url(r'login/', include('shopify_auth.urls')),
-    url(r'^$', 'auth_app.views.home'),
-)
+    url(r'^$', home),
+]
